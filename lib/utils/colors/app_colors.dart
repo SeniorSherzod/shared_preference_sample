@@ -18,12 +18,17 @@ class AppColors {
   static const Color c_E2E2E2 = Color(0xFFE2E2E2);
   static const Color c_7C7C7C = Color(0xFF7C7C7C);
   static const Color c_53B175= Color(0xFF53B175);
-  static const Color c_F8A44C = Color(0xFFF8A44C);
+  static const Color yellow = Color(0xFFFBDF00);
   static const Color c_F7A593 = Color(0xFFF7A593);
   static const Color c_D3B0E0 = Color(0xFFD3B0E0);
   static const Color c_FDE598 = Color(0xFFFDE598);
   static const Color c_B7DFF5 = Color(0xFFB7DFF5);
   static const Color c_E6EBF3 = Color(0xFFE6EBF3);
+  static const Color back = Color(0xFF0001fc);
+  static const Color googleText = Color(0xFF555555);
+  static const Color facebook = Color(0xFF415a93);
+
+
 
 
 }

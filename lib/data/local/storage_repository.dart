@@ -1,11 +1,9 @@
-import 'dart:html';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageRepository{
 
   static  SharedPreferences? _preferences;
-  static final StorageRepository instance =StorageRepository();
+  static final StorageRepository instance =StorageRepository._();
 
 
   StorageRepository._(){
