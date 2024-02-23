@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:cars_api_task/data/local/storage_repository.dart';
-import 'package:cars_api_task/screens/login_screen/login_screen.dart';
 import 'package:cars_api_task/screens/main_screen/latech_screen.dart';
 import 'package:cars_api_task/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,7 @@ class MyHttpOverrides extends HttpOverrides {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // StorageRepository();
+  StorageRepository();
   HttpOverrides.global = MyHttpOverrides();
   runApp(
     MaterialApp(

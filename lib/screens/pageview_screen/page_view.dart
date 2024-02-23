@@ -51,69 +51,67 @@ class _PageViewScreenState extends State<PageViewScreen> {
         statusBarColor: AppColors.transparent
       ),
       child: Scaffold(
-        body: Expanded(
-          child: Column(
-            children: [
-              Expanded(
-                child: PageView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: pageController,
-                  children: [
-                    ...List.generate(
-                      pagesData.length,
-                          (index) => PageViews(
-                        pageViewsModel: pagesData[index],
-                        horizontalPadding: index == 2? 2.w : 1.w,
-                      ),
-                    )
-                  ],
+        body: Column(
+          children: [
+            Expanded(
+              child: PageView(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: pageController,
+                children: [
+                  ...List.generate(
+                    pagesData.length,
+                        (index) => PageViews(
+                      pageViewsModel: pagesData[index],
+                      horizontalPadding: index == 2? 2.w : 1.w,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            BoardingBottomView(
+              pagesData: pagesData,
+              activeIndex: activeIndex,
+              onTap: () {
+              },
+            ),
+            TextButton(onPressed: (){if (activeIndex < pagesData.length - 1) {
+              setState(() {
+                activeIndex++;
+              });
+              pageController.jumpToPage(activeIndex);
+            } else {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ConnexionScreen();
+                  },
                 ),
-              ),
-              BoardingBottomView(
-                pagesData: pagesData,
-                activeIndex: activeIndex,
-                onTap: () {
-                },
-              ),
-              TextButton(onPressed: (){if (activeIndex < pagesData.length - 1) {
-                setState(() {
-                  activeIndex++;
-                });
-                pageController.jumpToPage(activeIndex);
-              } else {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return ConnexionScreen();
-                    },
-                  ),
-                );
-              }},
-                child: Text("Next",style: AppTextStyle.GilroyRegular.copyWith
-                  (color: AppColors.white,fontSize: 20.w),),),
-              // GlobalButton(onTap: (){ if (activeIndex < pagesData.length - 1) {
-              //   setState(() {
-              //     activeIndex++;
-              //   });
-              //   pageController.jumpToPage(activeIndex);
-              // } else {
-              //   // Navigator.pushReplacement(
-              //   //   context,
-              //   //   MaterialPageRoute(
-              //   //     builder: (context) {
-              //   //       return AuthScreen();
-              //   //     },
-              //   //   ),
-              //   // );
-              // }},
-              //   pixels: 53,
-              //   colors: AppColors.c_E3562A,
-              //   title: activeIndex == pagesData.length-1 ? "Let's start":"Next",
-              //   horizontalPadding: 22.getW(),),
-              // SizedBox(height: 20.getH()),
-            ],
-          ),
+              );
+            }},
+              child: Text("Next",style: AppTextStyle.GilroyRegular.copyWith
+                (color: AppColors.white,fontSize: 20.w),),),
+            // GlobalButton(onTap: (){ if (activeIndex < pagesData.length - 1) {
+            //   setState(() {
+            //     activeIndex++;
+            //   });
+            //   pageController.jumpToPage(activeIndex);
+            // } else {
+            //   // Navigator.pushReplacement(
+            //   //   context,
+            //   //   MaterialPageRoute(
+            //   //     builder: (context) {
+            //   //       return AuthScreen();
+            //   //     },
+            //   //   ),
+            //   // );
+            // }},
+            //   pixels: 53,
+            //   colors: AppColors.c_E3562A,
+            //   title: activeIndex == pagesData.length-1 ? "Let's start":"Next",
+            //   horizontalPadding: 22.getW(),),
+            // SizedBox(height: 20.getH()),
+          ],
         ),
       ),
     );

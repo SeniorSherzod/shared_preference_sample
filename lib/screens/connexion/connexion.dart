@@ -11,20 +11,26 @@ import '../login_screen/login_screen.dart';
 class ConnexionScreen extends StatefulWidget {
   const ConnexionScreen({super.key});
 
-
-
   @override
   State<ConnexionScreen> createState() => _ConnexionScreenState();
 }
 
 class _ConnexionScreenState extends State<ConnexionScreen> {
   int activeIndex = 3;
+
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(centerTitle: true,title: Text("Connexion",style: AppTextStyle.GilroyBold.copyWith(color: AppColors.white,fontSize: 24),),),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Connexion",
+          style: AppTextStyle.GilroyBold.copyWith(
+              color: AppColors.white, fontSize: 24),
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.only(top: 70.h),
         child: Column(
@@ -32,7 +38,16 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GlobalButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const CreateAccountScreen();
+                    },
+                  ),
+                );
+              },
               title: "Create an account",
               horizontalPadding: 16,
               pixels: 53,
@@ -76,8 +91,8 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
               },
               child: Text(
                 "Already have an  accoiunt ? Login",
-                style:
-                AppTextStyle.GilroyRegular.copyWith(color: AppColors.yellow),
+                style: AppTextStyle.GilroyRegular.copyWith(
+                    color: AppColors.yellow),
               ),
             ),
             20.getH(),
@@ -86,18 +101,16 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
               children: [
                 ...List.generate(
                     4,
-                        (index) => Container(
-                      margin: const EdgeInsets.all(4),
-                      height:index== activeIndex ? 10 :7,
-                      width :index== activeIndex ? 10 :7 ,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: index == activeIndex
-                              ? AppColors.white
-                              : AppColors.white.withOpacity(0.5)
-                      ),
-                    )
-                )
+                    (index) => Container(
+                          margin: const EdgeInsets.all(4),
+                          height: index == activeIndex ? 10 : 7,
+                          width: index == activeIndex ? 10 : 7,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: index == activeIndex
+                                  ? AppColors.white
+                                  : AppColors.white.withOpacity(0.5)),
+                        ))
               ],
             ),
             TextButton(
@@ -106,7 +119,7 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return CreateAccountScreen();
+                      return const CreateAccountScreen();
                     },
                   ),
                 );
@@ -114,7 +127,7 @@ class _ConnexionScreenState extends State<ConnexionScreen> {
               child: Text(
                 "Skip for now",
                 style:
-                AppTextStyle.GilroyRegular.copyWith(color: AppColors.white),
+                    AppTextStyle.GilroyRegular.copyWith(color: AppColors.white),
               ),
             ),
           ],
