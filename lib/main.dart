@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:cars_api_task/data/local/storage_repository.dart';
-import 'package:cars_api_task/screens/login_screen/login_screen.dart';
+import 'package:cars_api_task/screens/account_screen/account_screen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -21,7 +21,7 @@ Future <void> main() async {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: false),
-      home: LoginScreen(),
+      home: AccountScreen(),
     ),
   );
 }
